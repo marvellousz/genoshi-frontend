@@ -4,7 +4,7 @@ export interface Tool {
   name: string;
   id: string;
   status: ToolStatus;
-  result: any;
+  result: unknown;
 }
 
 export interface StreamResponse {

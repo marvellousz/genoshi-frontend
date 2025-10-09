@@ -2,6 +2,14 @@ import { StreamResponse } from '../types/chat';
 
 const API_BASE_URL = 'https://intern-test-frontend-mbcr.onrender.com';
 
+export async function getTools() {
+  const response = await fetch(`${API_BASE_URL}/tools`);
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  return response.json();
+}
+
 export async function* streamChat(message: string): AsyncGenerator<StreamResponse> {
   const response = await fetch(`${API_BASE_URL}/chat`, {
     method: 'POST',
